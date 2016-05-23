@@ -13,12 +13,12 @@ TOKEN = 'AAAAAAAAAABBBBBB' # Токен от яндекса
 
 # Считываем текущий IP адрес
 # Можно добавить ещё проверку, что мы получили именно IP, а не что-то ещё.
-ip = urlopen(GET_IP_URL).read().decode()
+ip = urlopen(GET_IP_URL).read().decode().strip()
 
 # Считываем из файла IP, который был записан в DNS последний раз.
 # Можно, конечно это не делать, но я считаю нехорошо нагружать Яндекс лишними операциями.
 try:
-    last_ip = open(LAST_IP_FILE, mode='tr').read()
+    last_ip = open(LAST_IP_FILE, mode='tr').read().strip()
 except FileNotFoundError:
     last_ip = ""
 
