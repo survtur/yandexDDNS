@@ -3,7 +3,7 @@ from urllib.request import Request, urlopen
 import json
 import datetime
 
-LAST_IP_FILE = 'ip.txt' #Файл, в котором храниться последний прописанный IP
+LAST_IP_FILE = 'ip.txt' #Файл, в котором хранится последний прописанный IP
 LOG_FILE = 'ddns.log'  # Лог
 GET_IP_URL = 'https://myexternalip.com/raw' # адрес, сообщающий нам IP
 DOMAIN = 'myowndomain.xyz' # Домен, записи DNS которого я редактирую 
