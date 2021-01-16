@@ -3,9 +3,9 @@ from urllib.request import Request, urlopen
 import json
 import datetime
 
-LAST_IP_FILE = 'ip.txt' #Файл, в котором хранится последний прописанный IP
+LAST_IP_FILE = 'ip.txt' # Файл, в котором хранится последний прописанный IP
 LOG_FILE = 'ddns.log'  # Лог
-GET_IP_URL = 'https://myexternalip.com/raw' # адрес, сообщающий нам IP
+GET_IP_URL = 'https://myexternalip.com/raw' # Aдрес, сообщающий нам IP
 DOMAIN = 'myowndomain.xyz' # Домен, записи DNS которого я редактирую 
 RECORD_ID = '0000000' # Номер записи
 TOKEN = 'AAAAAAAAAABBBBBB' # Токен от яндекса
@@ -16,13 +16,13 @@ TOKEN = 'AAAAAAAAAABBBBBB' # Токен от яндекса
 ip = urlopen(GET_IP_URL).read().decode().strip()
 
 # Считываем из файла IP, который был записан в DNS последний раз.
-# Можно, конечно это не делать, но я считаю нехорошо нагружать Яндекс лишними операциями.
+# Можно, конечно это не делать, но я считаю, что нехорошо нагружать Яндекс лишними операциями.
 try:
     last_ip = open(LAST_IP_FILE, mode='tr').read().strip()
 except FileNotFoundError:
     last_ip = ""
 
-# Если старый IP и теукщий не совпадают, будем обновлять запись
+# Если старый IP и текущий не совпадают, будем обновлять запись
 if last_ip != ip:
 
     # Готовим POST-запрос
