@@ -26,6 +26,7 @@ except FileNotFoundError:
 if last_ip != ip:
 
     # Готовим POST-запрос
+    # Документация: https://yandex.ru/dev/pdd/doc/reference/dns-edit.html
     url = 'https://pddimp.yandex.ru/api2/admin/dns/edit'
     post_fields = {
         'domain': DOMAIN,      
